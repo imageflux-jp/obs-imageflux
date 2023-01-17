@@ -1,0 +1,72 @@
+{
+    "dependencies": {
+        "obs-studio": {
+            "version": "29.0.0",
+            "repository": "https://github.com/obsproject/obs-studio.git",
+            "branch": "master",
+            "hash": "b51773b97b551cb409603146a97b2827d2a66ec3"
+        },
+        "prebuilt": {
+            "version": "2022-11-21",
+            "baseUrl": "https://github.com/obsproject/obs-deps/releases/download",
+            "label": "Pre-built obs-deps",
+            "hashes": {
+                "macos-arm64": "f397dc524e5ee7f85684f0b9661c45957446e28d166fcd6dfacf895c9d4d2521",
+                "windows-x64": "78b83cae60ff8f3f9c12b3178c27d03d3c0e64044f9ee080b6413303c38c7df4"
+            }
+        },
+        "qt6": {
+            "version": "2022-11-21",
+            "baseUrl": "https://github.com/obsproject/obs-deps/releases/download",
+            "label": "Pre-built Qt6",
+            "hashes": {
+                "macos-arm64": "1ce472fd1e28f947456b72b1d7ab929d6e93cb774c2928e22eca9bb751b12ccf",
+                "windows-x64": "cad882a8373a14ba5d44206785d1f7e50fb4dfac28b0f017a17b00e945d7ddda"
+            },
+            "pdb-hashes": {
+                "windows-x64": "ba4833a428aacc8628871d226ecd7d5a0c21632d65349c144029f63e99051375"
+            }
+        },
+        "sora-cpp-sdk": {
+            "windows-x64": "sora-cpp-sdk-2023.1.0_windows_x86_64.zip",
+            "macos-arm64": "sora-cpp-sdk-2023.1.0_macos_arm64.tar.gz",
+            "version": "2023.1.0",
+            "baseUrl": "https://github.com/shiguredo/sora-cpp-sdk/releases/download",
+            "label": "sora-cpp-sdk"
+        },
+        "boost": {
+            "windows-x64":"boost-1.81.0_sora-cpp-sdk-2023.1.0_windows_x86_64.zip",
+            "macos-arm64":"boost-1.81.0_sora-cpp-sdk-2023.1.0_macos_arm64.tar.gz",
+            "version": "2023.1.0",
+            "baseUrl": "https://github.com/shiguredo/sora-cpp-sdk/releases/download",
+            "label": "boost"
+        },
+        "lyra": {
+            "windows-x64":"lyra-1.3.0_sora-cpp-sdk-2023.1.0_windows_x86_64.zip",
+            "macos-arm64":"lyra-1.3.0_sora-cpp-sdk-2023.1.0_macos_arm64.tar.gz",
+            "version": "2023.1.0",
+            "baseUrl": "https://github.com/shiguredo/sora-cpp-sdk/releases/download",
+            "label": "lyra"
+        },
+        "webrtc": {
+            "windows-x64":"webrtc.windows_x86_64.zip",
+            "macos-arm64":"webrtc.macos_arm64.tar.gz",
+            "version": "m109.5414.2.0",
+            "baseUrl": "https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download",
+            "label": "webrtc"
+        }
+    },
+    "platformConfig": {
+        "macos-arm64": {
+            "qtVersion": 6,
+            "deploymentTarget": "11.0"
+        },
+        "windows-x64": {
+            "qtVersion": 6,
+            "visualStudio": "Visual Studio 17 2022",
+            "platformSDK": "10.0.20348.0"
+        }
+    },
+    "name": "obs-imageflux",
+    "version": "1.0.0"
+}
