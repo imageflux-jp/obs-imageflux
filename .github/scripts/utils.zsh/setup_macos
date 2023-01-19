@@ -53,6 +53,38 @@ if (( ! (${skips[(Ie)all]}  + ${skips[(Ie)deps]}) )) {
   local _target
   local artifact_checksum
 
+  for dependency ("sora-cpp-sdk" "boost" "lyra" "webrtc") {
+    IFS=';' read -r deps_version deps_baseurl deps_label _filename  <<< \
+      "$(jq -r --arg dependency "${dependency}" --arg target "${target}" \
+        '.dependencies[$dependency] | {version, baseUrl, "label", "macos-arm64"} | join(";")' \
+        ${buildspec_file})"
+
+    log_info "Setting up ${deps_label}..."
+
+    pushd ${project_root:h}/obs-build-dependencies
+
+    _url="${deps_baseurl}/${deps_version}/${_filename}"
+    _target="sora-cpp-sdk"
+
+    log_info "filename=${_filename}"
+    log_info "url=${_url}"
+
+    if [[ ! -f ${_filename} ]] {
+      log_debug "Running curl ${curl_opts} ${_url}"
+      curl ${curl_opts} ${_url} && \
+      log_status "Downloaded ${deps_label} for ${target}."
+    } else {
+      log_status "Found downloaded ${deps_label}"
+    }
+
+    if (( ! (${skips[(Ie)all]} + ${skips[(Ie)unpack]}) )) {
+      mkdir -p ${_target} && pushd ${_target}
+
+      XZ_OPT=-T0 tar -xzf ../${_filename} && log_status "${deps_label} extracted."
+      popd
+    }
+  }
+
   for dependency ('prebuilt' "qt${QT_VERSION}") {
     IFS=';' read -r deps_version deps_baseurl deps_label deps_hash <<< \
       "$(jq -r --arg dependency "${dependency}" --arg target "${target}" \
@@ -75,14 +107,14 @@ if (( ! (${skips[(Ie)all]}  + ${skips[(Ie)deps]}) )) {
         typeset -g OBS_DEPS_VERSION=${deps_version}
         ;;
       qt*)
-        if (( ${+CI} )) {
-          _filename="macos-deps-qt${QT_VERSION}-${deps_version}-universal.tar.xz"
-          deps_hash="$(jq -r --arg dependency "${dependency}" \
-            '.dependencies[$dependency].hashes["macos-universal"]' \
-            ${buildspec_file})"
-        } else {
+        # if (( ${+CI} )) {
+        #   _filename="macos-deps-qt${QT_VERSION}-${deps_version}-universal.tar.xz"
+        #   deps_hash="$(jq -r --arg dependency "${dependency}" \
+        #     '.dependencies[$dependency].hashes["macos-universal"]' \
+        #     ${buildspec_file})"
+        # } else {
           _filename="macos-deps-qt${QT_VERSION}-${deps_version}-${target##*-}.tar.xz"
-        }
+        # }
         _url="${deps_baseurl}/${deps_version}/${_filename}"
         _target="plugin-deps-${deps_version}-qt${QT_VERSION}-${target##*-}"
         ;;
@@ -114,10 +146,10 @@ if (( ! (${skips[(Ie)all]}  + ${skips[(Ie)deps]}) )) {
   }
 
   popd
-  pushd ${project_root:h}/obs-build-dependencies
-  xattr -r -d com.apple.quarantine *
-  log_status 'Removed quarantine flag from downloaded dependencies...'
-  popd
+  # pushd ${project_root:h}/obs-build-dependencies
+  # xattr -r -d com.apple.quarantine *
+  # log_status 'Removed quarantine flag from downloaded dependencies...'
+  # popd
 } else {
   local deps_version
   read -r deps_version <<< \

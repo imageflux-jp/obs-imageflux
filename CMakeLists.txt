@@ -19,6 +19,8 @@ set(MACOS_BUNDLEID "com.example.${PROJECT_NAME}")
 # Replace `me@contoso.com` with the maintainer email address you want to put in Linux packages
 set(LINUX_MAINTAINER_EMAIL "me@mymailhost.com")
 
+set(CMAKE_OSX_DEPLOYMENT_TARGET "12.3")
+
 target_sources(${PROJECT_NAME} PRIVATE
   src/plugin-main.c
   src/encoder.c
@@ -28,15 +30,18 @@ target_sources(${PROJECT_NAME} PRIVATE
   src/client.h
 )
 
-# Import libobs as main plugin dependency
-find_package(libobs REQUIRED)
-include(cmake/ObsPluginHelpers.cmake)
+if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME})
+  # Import libobs as main plugin dependency
+  find_package(libobs REQUIRED)
+  include(cmake/ObsPluginHelpers.cmake)
+endif()
+
 
 # --- Platform-independent build settings ---
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20 C_STANDARD 17)
 set_target_properties(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
-set(SORA_CPP_SDK_DIR "${CMAKE_CURRENT_LIST_DIR}/../obs-build-dependencies/sora-cpp-sdk")
+set(SORA_CPP_SDK_DIR "${CMAKE_SOURCE_DIR}/../obs-build-dependencies/sora-cpp-sdk")
 set(BOOST_ROOT "${SORA_CPP_SDK_DIR}/boost")
 set(LYRA_DIR "${SORA_CPP_SDK_DIR}/lyra")
 set(WEBRTC_INCLUDE_DIR "${SORA_CPP_SDK_DIR}/webrtc/include")

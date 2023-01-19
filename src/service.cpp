@@ -45,7 +45,7 @@ extern "C" bool insert_imageflux_service(void)
     if(!format_ver){
         return false;
     }
-    info("format_ver=%d", format_ver);
+    info("format_ver=%lld", format_ver);
     bool registered = false;
     auto services = root.at("services").as_array();
     for (size_t index = 0; index < services.size(); index++) {

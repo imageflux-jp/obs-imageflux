@@ -162,6 +162,10 @@ void SoraClient::Connect()
 		webrtc::CreateBuiltinAudioDecoderFactory();
 
 	{
+#ifdef __APPLE__
+		media_dependencies.video_encoder_factory =
+			sora::CreateMacVideoEncoderFactory();
+#else
 		void *env = sora::GetJNIEnv();
 		auto cuda_context = sora::CudaContext::Create();
 		auto config = sora::GetDefaultVideoEncoderFactoryConfig(
@@ -170,8 +174,7 @@ void SoraClient::Connect()
 		media_dependencies.video_encoder_factory =
 			absl::make_unique<sora::SoraVideoEncoderFactory>(
 				std::move(config));
-		// media_dependencies.video_encoder_factory =
-		// 	sora::CreateMacVideoEncoderFactory();
+#endif
 	}
 	media_dependencies.video_decoder_factory = nullptr;
 	// {

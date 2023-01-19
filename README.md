@@ -1,5 +1,8 @@
 # OBS Plugin For ImageFlux Live Streaming
 
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/imageflux-jp/obs-imageflux.svg)](https://github.com/imageflux-jp/obs-imageflux)
+[![Actions Status](https://github.com/imageflux-jp/obs-imageflux/actions/workflows/main.yml/badge.svg)](https://github.com/imageflux-jp/obs-imageflux/actions)
+
 [OBS Studio](https://obsproject.com/ja) (Open Broadcaster Software Studio) から、[ImageFlux Live Streaming](https://imageflux.sakura.ad.jp/livestreaming/) に配信する機能を追加するプラグインです。  
 OBS Studioの持つ豊富なレイアウト編集機能、音声編集機能、ウインドウキャプチャ機能を使用した高度な配信をすることが可能です。  
 
@@ -64,7 +67,7 @@ C:\Program Files\obs-studio\obs-plugins\64bit\obs-imageflux.dll
 
 1. Windows 11 development environment 等を利用し、Visual Studio 2022を準備する  
 
-2. PowerShell v7をインストールし、Windows Terminalのデフォルトシェル(プロファイル)に変更する
+2. PowerShell v7をインストールし、その他のコマンドラインツールもインストールする
 ```
 winget install Microsoft.Powershell
 winget install Git.Git
@@ -118,3 +121,5 @@ PR・issueで送られた全てのコードはGPL v2で提供されたとみな�
 * Sora C++ SDK: [Apache LICENSE 2.0](https://github.com/shiguredo/sora-cpp-sdk/blob/develop/LICENSE) / [github](https://github.com/shiguredo/sora-cpp-sdk)
 * libwebrtc: [WebRTC License](https://webrtc.github.io/webrtc-org/license/software/) / [web](https://webrtc.org/) / [github](https://github.com/shiguredo-webrtc-build/webrtc-build)
 * Boost: [Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt) / [web](https://www.boost.org/)
+
+本プロジェクトは [obs-plugintemplate](https://github.com/obsproject/obs-plugintemplate) の派生物です。  
