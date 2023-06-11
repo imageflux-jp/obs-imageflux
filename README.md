@@ -8,7 +8,7 @@ OBS Studioの持つ豊富なレイアウト編集機能、音声編集機能、�
 
 ## 対象動作環境
 
-OBS Studio 29.0.0  
+OBS Studio 29.1.2  
 Windows 11 x64  
 
 ## インストール方法
@@ -27,6 +27,11 @@ C:\Users\(username)\AppData\Roaming\obs-studio\plugin_config\rtmp-services
 
 * OBS Studioのプラグインフォルダにコピーした場合は、obs-imageflux.dll, obs-imageflux.pdbをエクスプローラで削除  
 C:\Program Files\obs-studio\obs-plugins\64bit\obs-imageflux.dll
+
+## プラグインの旧バージョンからのアップデート方法
+
+C:\Users\(username)\AppData\Roaming\obs-studio\plugin_config\rtmp-services  
+をフォルダごと削除し、OBS Studioを終了し、再度実行してください。
 
 ## 使い方
 

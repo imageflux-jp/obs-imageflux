@@ -66,7 +66,7 @@ R"({
 "more_info_link": "https://console.imageflux.jp/docs/",
 "servers": [{
     "name": "出力(詳細)ページで指定",
-    "url": "wss://imageflux/signaling"
+    "url": "rtmp://imageflux/signaling"
 }],
 "recommended": {
     "output": "imageflux_output"

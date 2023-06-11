@@ -53,7 +53,7 @@ function Build {
 
     Setup-Host
     if ( $script:SkipDeps ) {
-        $script:DepsVersion = '2022-11-21'
+        $script:DepsVersion = '2023-04-12'
     }
 
     if ( $CmakeGenerator -eq '' ) {

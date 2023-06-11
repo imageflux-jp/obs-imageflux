@@ -1,30 +1,30 @@
 {
     "dependencies": {
         "obs-studio": {
-            "version": "29.0.0",
+            "version": "29.1.2",
             "repository": "https://github.com/obsproject/obs-studio.git",
             "branch": "master",
-            "hash": "b51773b97b551cb409603146a97b2827d2a66ec3"
+            "hash": "e15a92e16fc3827027a956f6d6a1223b41aced61"
         },
         "prebuilt": {
-            "version": "2022-11-21",
+            "version": "2023-04-12",
             "baseUrl": "https://github.com/obsproject/obs-deps/releases/download",
             "label": "Pre-built obs-deps",
             "hashes": {
-                "macos-arm64": "f397dc524e5ee7f85684f0b9661c45957446e28d166fcd6dfacf895c9d4d2521",
-                "windows-x64": "78b83cae60ff8f3f9c12b3178c27d03d3c0e64044f9ee080b6413303c38c7df4"
+                "macos-arm64": "b9bab79611774c4651d084e14259abe889d2b8d1653787a843d08cf3f0db881c",
+                "windows-x64": "c13a14a1acc4224b21304d97b63da4121de1ed6981297e50496fbc474abc0503"
             }
         },
         "qt6": {
-            "version": "2022-11-21",
+            "version": "2023-04-12",
             "baseUrl": "https://github.com/obsproject/obs-deps/releases/download",
             "label": "Pre-built Qt6",
             "hashes": {
-                "macos-arm64": "1ce472fd1e28f947456b72b1d7ab929d6e93cb774c2928e22eca9bb751b12ccf",
-                "windows-x64": "cad882a8373a14ba5d44206785d1f7e50fb4dfac28b0f017a17b00e945d7ddda"
+                "macos-arm64": "4f72aa1103d88a00d90c01bb3650276ffa1408e16ef40579177605483b986dc9",
+                "windows-x64": "4d39364b8a8dee5aa24fcebd8440d5c22bb4551c6b440ffeacce7d61f2ed1add"
             },
             "pdb-hashes": {
-                "windows-x64": "ba4833a428aacc8628871d226ecd7d5a0c21632d65349c144029f63e99051375"
+                "windows-x64": "f34ee5067be19ed370268b15c53684b7b8aaa867dc800b68931df905d679e31f"
             }
         },
         "sora-cpp-sdk": {
@@ -68,5 +68,5 @@
         }
     },
     "name": "obs-imageflux",
-    "version": "1.0.0"
+    "version": "1.1.0"
 }
