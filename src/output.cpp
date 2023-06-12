@@ -60,7 +60,7 @@ static float output_congestion(void *data)
 
 struct obs_output_info imageflux_output_info = {
 	.id = "imageflux_output",
-	.flags = OBS_OUTPUT_AV,
+	.flags = OBS_OUTPUT_VIDEO | OBS_OUTPUT_AUDIO | OBS_OUTPUT_SERVICE,
 	.get_name = output_getname,
 	.create = output_create,
 	.destroy = output_destroy,
@@ -71,6 +71,7 @@ struct obs_output_info imageflux_output_info = {
 	.get_total_bytes = output_total_bytes,
 	.get_dropped_frames = output_dropped_frames,
 	.get_congestion = output_congestion,
+	.protocols = "imageflux_output",
 };
 
 }

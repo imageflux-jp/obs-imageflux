@@ -240,7 +240,7 @@ void SoraClient::Connect()
 		sconfig.pc_factory = factory_;
 		sconfig.io_context = ioc_.get();
 		sconfig.role = "sendonly"; // config_.role;
-		sconfig.sora_client = "OBS28.1.2";
+		sconfig.sora_client = "OBS29.1.2";
 		sconfig.multistream = multistream;
 
 		sconfig.signaling_urls.push_back(signaling_url);

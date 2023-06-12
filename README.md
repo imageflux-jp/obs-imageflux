@@ -30,7 +30,9 @@ C:\Program Files\obs-studio\obs-plugins\64bit\obs-imageflux.dll
 
 ## プラグインの旧バージョンからのアップデート方法
 
-C:\Users\(username)\AppData\Roaming\obs-studio\plugin_config\rtmp-services  
+C:\Users\ (username)\AppData\Roaming\obs-studio\basic\profiles\Untitled\stream.json
+を削除
+C:\Users\ (username)\AppData\Roaming\obs-studio\plugin_config\rtmp-services  
 をフォルダごと削除し、OBS Studioを終了し、再度実行してください。
 
 ## 使い方

@@ -64,13 +64,15 @@ R"({
 "name": "ImageFlux Live Streaming",
 "common": true,
 "more_info_link": "https://console.imageflux.jp/docs/",
-"servers": [{
+"protocol": "imageflux_output",
+"servers" : [{
     "name": "出力(詳細)ページで指定",
-    "url": "rtmp://imageflux/signaling"
+    "url": "imageflux_output://imageflux/signaling"
 }],
 "recommended": {
     "output": "imageflux_output"
-}
+},
+"supported video codecs":["h264"]
 })"
         );
 	root.at("services").as_array().emplace(
